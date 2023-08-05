@@ -1,0 +1,34 @@
+--Create a clothing store database
+
+CREATE TABLE store (id INTEGER PRIMARY KEY, name TEXT, quanity INTEGER, price INTEGER, catogory TEXT);
+INSERT into store VALUES (1, "Crop top", 3, 8, "Shirt");
+INSERT into store VALUES (2, "T-shirt", 20, 5, "Shirt");
+INSERT into store VALUES (3, "Bell Bottoms", 7, 20, "pants");
+INSERT into store VALUES (4, "leggings", 8, 10, "pants");
+INSERT into store VALUES (5, "tank tops", 4, 5, "Shirt");
+INSERT into store VALUES (6, "jean shorts", 2, 30, "pants");
+INSERT into store VALUES (7, "flowy shorts", 4, 20, "pants");
+INSERT into store VALUES (8, "pajama top", 7, 10, "shirt");
+INSERT into store VALUES (9, "pajama bottoms", 7, 10, "pants");
+INSERT into store VALUES (10, "sneakers", 4, 20, "shoes");
+INSERT into store VALUES (11, "sandles", 1, 20, "shoes");
+INSERT into store VALUES (12, "heels", 8,20, "shoes");
+INSERT into store VALUES (13, "Jeans", 3, 20, "pants");
+INSERT into store VALUES (14, "blouses", 7, 25, "shirt");
+INSERT into store VALUES (15, "dresses", 9, 35, "dresses");
+
+--display the database ordered by price
+Select * from store where price order by price DESC;
+--display inventory from the store
+Select quanity,name,catogory from store order by catogory;
+
+-- What is the total if all inventory was sold?
+Select SUM("price") 
+from store
+order by catogory;
+
+--What is the 5 most expensive items in the store?
+SELECT name, price, catogory
+FROM store
+order by price desc
+limit 5;
